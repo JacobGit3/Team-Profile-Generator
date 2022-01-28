@@ -1,4 +1,5 @@
 function generateHTML(data) {
+  console.log(data);
   console.log('Page created at ./dist/TeamProfile.hmtl')
 }
 

@@ -4,7 +4,7 @@ const Engineer = require('./lib/Engineer.js')
 const Intern = require ('./lib/Intern.js')
 const inquirer = require('inquirer');
 const Questions = require ('./dist/Questions.js');
-const generateHTML = require('./src/Template.js')
+const Generate = require('./src/GeneratePage.js')
 
 //Global Variables
 let team = []
@@ -37,8 +37,11 @@ function CreateTeam() {
         }
       }
       // If chosen no to add member the team is complete, create HTML
-      else {
+      else if(!data.addMember){
+        // FIX THIS IT DOES NOT RUN
         generateHTML(team);
+      }else {
+        console.log('error');
       }
     })
 }
@@ -49,7 +52,6 @@ function CreateEngineer() {
     .then(function makeEngineer(data){
       let newEngineer = new Engineer(data.name, data.id, data.email, data.github);
       team.push(newEngineer);
-      console.log(team);
       CreateTeam();
     })
 }
