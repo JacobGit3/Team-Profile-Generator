@@ -4,6 +4,7 @@ const Engineer = require('./lib/Engineer.js')
 const Intern = require ('./lib/Intern.js')
 const inquirer = require('inquirer');
 const Questions = require ('./dist/Questions.js');
+const generateHTML = require('./src/Template.js')
 
 //Global Variables
 let team = []
@@ -37,7 +38,7 @@ function CreateTeam() {
       }
       // If chosen no to add member the team is complete, create HTML
       else {
-        CreatePage();
+        generateHTML(team);
       }
     })
 }
@@ -61,11 +62,6 @@ function CreateIntern() {
     team.push(newIntern);
     CreateTeam();
   })
-}
-
-// Creates the Page HTML and copies over the CSS
-function CreatePage() {
-  console.log('Page Created');
 }
 
 // Ran on load to start team generator
