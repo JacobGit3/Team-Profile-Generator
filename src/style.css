@@ -17,6 +17,7 @@ footer {
   border-radius: 15px;
   margin: 15px;
   background-color: #dad8d8;
+  width: 200px;
 }
 
 header {
@@ -42,9 +43,20 @@ header {
 }
 
 .name {
+  font-size: large;
+  text-align: left;
+  padding-left: 20px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.role {
   border-bottom: 3px solid #555555;
   font-size: large;
-  text-align: center;
+  text-align: left;
+  padding-left: 20px;
+  font-weight: 600;
+  margin-top: 3px;
 }
 
 h4 {

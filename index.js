@@ -3,8 +3,9 @@ const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js')
 const Intern = require ('./lib/Intern.js')
 const inquirer = require('inquirer');
-const Questions = require ('./dist/Questions.js');
-const Generate = require('./src/GeneratePage.js')
+const Questions = require ('./lib/Questions.js');
+const Template = require('./src/Template.js');
+const { writeFile, copyFile } = require('./src/Generate.js');
 
 //Global Variables
 let team = []
@@ -38,8 +39,7 @@ function CreateTeam() {
       }
       // If chosen no to add member the team is complete, create HTML
       else if(!data.addMember){
-        // FIX THIS IT DOES NOT RUN
-        generateHTML(team);
+        CreateFiles();
       }else {
         console.log('error');
       }
@@ -64,6 +64,13 @@ function CreateIntern() {
     team.push(newIntern);
     CreateTeam();
   })
+}
+
+function CreateFiles() {
+  let HTML = Template.GeneratePage(team);
+  writeFile(HTML);
+  copyFile();
+  console.log('Page Created and styles created in ./dist')
 }
 
 // Ran on load to start team generator
