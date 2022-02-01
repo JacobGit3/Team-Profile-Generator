@@ -30,7 +30,7 @@
   To make use of this project first install depenedencies from the package.json, then run the program and fill out all prompts correctly.
 
   Console Prompts:
-  ![console prompts](assets/console.PNG)
+  ![console prompts](assets/Console.PNG)
 
   When all members are added the page is completed and will be generated with styles in the ./dist folder.
 
